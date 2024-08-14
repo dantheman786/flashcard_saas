@@ -21,9 +21,29 @@ Remember, the goal is to facilitate effective learning and retention of informat
 
 Format your output as a JSON array like the following:
 {
-    "flashcards":{
-        "front": str,
-        "back": str
-    }
+    "flashcards":[
+        {
+            "front": str,
+            "back": str
+        }
+    ]
 }
 `
+
+export async function POST(req){
+    const openai = OpenAI()
+    const data = await req.text()
+
+    const completion = await openai.chat.completion.create({
+        messages: [
+            {role: 'system', content: systemPrompt},
+            {role: 'user', content: data}, 
+        ],
+        model: 'gpt-4o',
+        response_format: {type: 'json_object'},
+    })
+
+    const flashcards = JSON.parse(completion.choices[0].messages.content)
+
+    return NextResponse.json(flashcards.flashcard)
+}
