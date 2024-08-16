@@ -1,95 +1,81 @@
 import Image from "next/image";
-
+import getStripe from "@/utils/get-stripe";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { AppBar, Container, Typography, Button, Toolbar } from "@mui/material";
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Container maxWidth="100vw">
+      <Head>
+        <title>Flashcard SaaS</title>
+        <meta name="description" content="FlashAI: Your Intelligent Flashcard Generator"/>
+      </Head>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      <AppBar position="static" sx={{ 
+        backgroundColor: '#0f172a',
+        border: '1px solid #0f172a',
+        borderRadius: '10px',
+      }}>
+        <Toolbar>
+          <Typography variant="h6" sx={{ 
+            flexGrow: 1, 
+            fontWeight: 'bold', 
+            color: '#e2e8f0', 
+            textShadow: '1px 1px 2px rgba(0,0,0,0.3)', 
+            fontFamily: "'Roboto Slab', serif", 
+            fontSize: '1.45rem', 
+            letterSpacing: '0.03em',
+            textAlign: 'center',
+            width: '100%'
+          }}>
+            FlashAI: Intelligent Flashcards
+          </Typography>
+          <SignedOut>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Button 
+                variant="contained" 
+                sx={{ 
+                  color: '#f8fafc', 
+                  border: '1px solid #94a3b8', 
+                  borderRadius: '20px', 
+                  marginBottom: '10px', 
+                  backgroundColor: '#1e293b', 
+                  fontFamily: "'Roboto Slab', serif", 
+                  fontSize: '0.50rem', 
+                  letterSpacing: '0.05em', 
+                  '&:hover': { 
+                    backgroundColor: '#082f49' 
+                  } 
+                }}
+              >
+                Login
+              </Button>
+              <Button 
+                variant="contained" 
+                sx={{ 
+                  color:'#f8fafc', 
+                  border: '1px solid #94a3b8', 
+                  borderRadius: '20px', 
+                  backgroundColor: '#1e293b', 
+                  fontFamily: "'Roboto Slab', serif", 
+                  fontSize: '0.50rem', 
+                  letterSpacing: '0.05em', 
+                  '&:hover': { 
+                    backgroundColor: '#082f49' 
+                  } 
+                }}
+              >
+                Sign Up
+              </Button>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </Toolbar>
+      </AppBar>
+      
+    </Container>
+  )
 }
