@@ -1,7 +1,7 @@
 import Image from "next/image";
 import getStripe from "@/utils/get-stripe";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { AppBar, Container, Typography, Button, Toolbar } from "@mui/material";
+import { AppBar, Container, Typography, Button, Toolbar, Box, Grid } from "@mui/material";
 import Head from "next/head";
 
 export default function Home() {
@@ -65,7 +65,44 @@ export default function Home() {
   </Toolbar>
 </AppBar>
 
+    <Box sx={{ textAlign: 'center', my: 4}}>
+      <Typography variant="h2">Welcome to Flash AI</Typography>
+      <Typography variant="h5">Generate intelligent flashcards from your own text with AI assistance.</Typography>
+      <Button variant='contained' color='primary' sx={{ mt: 2 }}>Get Started Now!</Button>
+    </Box>
+    <Box sx={{ my: 6 }}>
+        <Typography variant="h4" component="h2">
+          Features
+        </Typography> 
+        <Grid contained spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">Upload your text</Typography>
+            <Typography>
+              {' '}
+              Upload your text and let Flash AI generate flashcards for you. 
+              Our advanced AI system will analyze your content and create tailored study cards to enhance your learning experience.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">AI-Powered Flashcard Generation</Typography>
+            <Typography>
+              {' '}
+              Our AI-powered system generates intelligent flashcards from your text, creating concise questions and answers to reinforce key concepts and aid in effective learning.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">An Accessible and Customizable Study Experience</Typography>
+            <Typography>
+              {' '}
+              Enjoy a fully accessible and customizable study experience. Our platform offers a fully customizable and accessible interface, ensuring that all users can tailor their learning environment to their individual needs and preferences.
+            </Typography>
+          </Grid>
+        </Grid>
+    </Box>
+
       
     </Container>
   )
 }
+
+/////    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
