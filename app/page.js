@@ -65,10 +65,6 @@ export default function Home() {
   </Toolbar>
 </AppBar>
 
-
-
-
-
       
     </Container>
   )
