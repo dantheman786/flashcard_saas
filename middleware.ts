@@ -10,8 +10,17 @@ export const config = {
     '/(api|trpc)(.*)',
     
     // Ensure authentication routes are handled by Clerk
-    '/sign-in',
-    '/sign-up',
+    // '/sign-in',
+    // '/sign-up',
   ],
 };
 
+// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+
+// const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)'])
+
+// export default clerkMiddleware((auth, request) => {
+//   if (!isPublicRoute(request)) {
+//     auth().protect()
+//   }
+// })
