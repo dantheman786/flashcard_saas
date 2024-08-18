@@ -3,6 +3,7 @@ import getStripe from "@/utils/get-stripe";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { AppBar, Container, Typography, Button, Toolbar, Box, Grid } from "@mui/material";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -70,7 +71,17 @@ export default function Home() {
     <Box sx={{ textAlign: 'center', my: 4}}>
       <Typography variant="h2">Welcome to Flash AI</Typography>
       <Typography variant="h5">Generate intelligent flashcards from your own text with AI assistance.</Typography>
-      <Button variant='contained' color='primary' sx={{ mt: 2 }}>Get Started Now!</Button>
+      <Button variant='contained'
+        sx={{ mt: 2, border: '1px solid #64748b',
+          backgroundColor: '#1e293b', 
+
+            borderRadius: '5px', 
+            fontFamily: "'Roboto Slab', serif",
+            fontSize: '0.9rem',
+            '&:hover': { 
+              backgroundColor: '#334155', 
+              color: '#f8fafc' 
+            } }}>Get Started Now!</Button>
     </Box>
     <Box sx={{ my: 6 }}>
         <Typography variant="h4" component="h2">
@@ -100,6 +111,9 @@ export default function Home() {
             </Typography>
           </Grid>
         </Grid>
+    </Box>
+    <Box sx={{my:6, textAlign: 'center'}}>
+      <Typography variant="h4" component="h2">Pricing</Typography> 
     </Box>
 
       
