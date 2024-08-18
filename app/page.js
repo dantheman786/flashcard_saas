@@ -27,6 +27,7 @@ export default function Home() {
       <div style={{ position: 'absolute', right: '20px', display: 'flex', gap: '10px', color: '#e2e8f0' }}>
         <Button 
           color="inherit" 
+          href="/sign-in" //eva added* to keep track 
           sx={{ 
             border: '1px solid #64748b', 
             borderRadius: '5px', 
@@ -42,6 +43,7 @@ export default function Home() {
         </Button>
         <Button 
           color="inherit" 
+          href="/sign-up" //eva*added
           sx={{ 
             border: '1px solid #64748b', 
             borderRadius: '5px', 
