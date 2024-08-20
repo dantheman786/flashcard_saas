@@ -71,6 +71,7 @@ export default function Home() {
     <Box sx={{ textAlign: 'center', my: 4}}>
       <Typography variant="h2">Welcome to Flash AI</Typography>
       <Typography variant="h5">Generate intelligent flashcards from your own text with AI assistance.</Typography>
+      <Link href="/generate" passHref>
       <Button variant='contained'
         sx={{ mt: 2, border: '1px solid #64748b',
           backgroundColor: '#1e293b', 
@@ -81,7 +82,10 @@ export default function Home() {
             '&:hover': { 
               backgroundColor: '#334155', 
               color: '#f8fafc' 
-            } }}>Get Started Now!</Button>
+            } }}>
+          Get Started Now!
+        </Button>
+      </Link>
     </Box>
     <Box sx={{ my: 6 }}>
         <Typography variant="h4" component="h2">
